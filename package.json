@@ -1,0 +1,26 @@
+{
+  "name": "dns-selector",
+  "version": "1.0.0",
+  "description": "A nodejs cli tool to resolve host's IPs",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sun0day/dns-selector.git"
+  },
+  "keywords": [
+    "dns",
+    "ping",
+    "cli",
+    "ip"
+  ],
+  "author": "sun0day",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sun0day/dns-selector/issues"
+  },
+  "homepage": "https://github.com/sun0day/dns-selector#readme"
+}
