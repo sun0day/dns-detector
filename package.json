@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/sun0day/dns-selector.git"
   },
+  "engines": {
+    "node": "^18.0.0"
+  },
   "keywords": [
     "dns",
     "ping",

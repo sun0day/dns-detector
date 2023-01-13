@@ -2,6 +2,7 @@ import { RESOLVE_EVENT } from './lib/constant.mjs'
 import { DnsServer } from './lib/server.mjs'
 import { Ping, PingQueue } from './lib/ping.mjs'
 import { Painter } from './lib/painter.mjs'
+import { getRealTime, interval } from './lib/utils.mjs'
 
 async function main() {
   const ips = []
@@ -9,9 +10,16 @@ async function main() {
 
   const host = 'www.baidu.com'
   const server = new DnsServer()
+  const painter = new Painter(host)
 
   server.resolve(host)
-  new Painter(host).print(ips)
+  painter.print(ips)
+
+  interval(() => {
+    painter.print(ips.filter(ip => ip.time).sort((next, cur) => {
+      return getRealTime(next.time) - getRealTime(cur.time)
+    }))
+  }, 100)
 
   server.on(RESOLVE_EVENT.INIT, data => console.log(data))
   server.on(RESOLVE_EVENT.PENDING, data => console.log(data))
