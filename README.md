@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/bundlephobia/minzip/dns-detector?label=minzip">
 </p>
 
-A nodejs cli tool to resolve host's IPs via DNS protocol and find the lowest latency IP via ping.
+A tiny nodejs cli tool to resolve host's IPs via DNS protocol and find the lowest latency IP via ping.
 
 ## Screenshot
 
