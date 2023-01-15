@@ -26,8 +26,6 @@ export async function resolve(options) {
     }))
   }, 100)
 
-  server.on(RESOLVE_EVENT.INIT, data => console.log(data))
-  server.on(RESOLVE_EVENT.PENDING, data => console.log(data))
   server.on(RESOLVE_EVENT.FULFILLED, data => {
     data.ips.forEach(ip => {
       let ipData = ips.find(ipData => ipData.ip === ip)

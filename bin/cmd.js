@@ -4,6 +4,9 @@ import { argv as args } from 'node:process'
 import { resolve, stdout } from '../index.mjs'
 
 const optionSchema = {
+  server: {
+    type: String
+  },
   'host': {
     required: true,
     type: String
