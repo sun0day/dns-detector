@@ -1,6 +1,11 @@
-# dns-selector
-
-<img src="https://img.shields.io/npm/v/dori.linkedlist"> <img src="https://img.shields.io/npm/dw/dori.linkedlist" > <img src="https://img.shields.io/bundlephobia/minzip/dori.linkedlist?label=minzip">
+<p align='center'>
+  dns-detector
+  <br>
+  <img src="https://img.shields.io/npm/v/dns-detector">
+  <img alt="node-current" src="https://img.shields.io/node/v/dns-detector">
+  <img src="https://img.shields.io/badge/platform-darwin%7Clinux%7Cwin32-black" />
+  <img src="https://img.shields.io/bundlephobia/minzip/dns-detector?label=minzip">
+</p>
 
 A nodejs cli tool to resolve host's IPs via DNS protocol and find the lowest latency IP via ping.
 
@@ -8,12 +13,12 @@ A nodejs cli tool to resolve host's IPs via DNS protocol and find the lowest lat
 
 ## Requirements
 
-`dns-selector` runs on node@18.x and above.
+`dns-detector` runs on node@18.x and above.
 
 ## Install
 
 ```shell
-$ npm i -g dns-selector
+$ npm i -g dns-detector
 ```
 
 ## Usage
@@ -33,7 +38,7 @@ $ dns --host {your host} --server {DNS server} --timeout {query timeout} --tries
 
 ## Embedded DNS Server
 
-`dns-selector` also embeds some famous DNS servers to help resolve IP address.
+`dns-detector` also embeds some famous DNS servers to help resolve IP address.
 
 - 1.1.1.1
 - 8.8.8.8

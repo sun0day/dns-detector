@@ -1,5 +1,5 @@
 {
-  "name": "dns-selector",
+  "name": "dns-detector",
   "version": "1.0.0",
   "description": "A nodejs cli tool to resolve host's IPs",
   "type": "module",
@@ -9,11 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sun0day/dns-selector.git"
+    "url": "git+https://github.com/sun0day/dns-detector.git"
   },
   "engines": {
     "node": "^18.0.0"
   },
+  "files": [
+    "bin",
+    "lib",
+    "index.mjs"
+  ],
   "keywords": [
     "dns",
     "ping",
@@ -26,7 +31,7 @@
   "author": "sun0day",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sun0day/dns-selector/issues"
+    "url": "https://github.com/sun0day/dns-detector/issues"
   },
-  "homepage": "https://github.com/sun0day/dns-selector#readme"
+  "homepage": "https://github.com/sun0day/dns-detector#readme"
 }
