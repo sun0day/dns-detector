@@ -1,8 +1,14 @@
 # dns-selector
 
-A nodejs cli tool to resolve host's IPs via DNS protocol and find the lowest latency IP via ping, support mac, linux and windows.
+<img src="https://img.shields.io/npm/v/dori.linkedlist"> <img src="https://img.shields.io/npm/dw/dori.linkedlist" > <img src="https://img.shields.io/bundlephobia/minzip/dori.linkedlist?label=minzip">
+
+A nodejs cli tool to resolve host's IPs via DNS protocol and find the lowest latency IP via ping.
 
 ## Screenshot
+
+## Requirements
+
+`dns-selector` runs on node@18.x and above.
 
 ## Install
 
@@ -27,7 +33,7 @@ $ dns --host {your host} --server {DNS server} --timeout {query timeout} --tries
 
 ## Embedded DNS Server
 
-dns-selector also embeds some famous DNS servers.
+`dns-selector` also embeds some famous DNS servers to help resolve IP address.
 
 - 1.1.1.1
 - 8.8.8.8

@@ -3,13 +3,18 @@ import { DnsServer } from './lib/server.mjs'
 import { Ping, PingQueue } from './lib/ping.mjs'
 import { Painter } from './lib/painter.mjs'
 import { getRealTime, interval } from './lib/utils.mjs'
+import { stdout } from './lib/stdout.mjs'
 
-async function main() {
+export { COLORS }
+
+export { stdout }
+
+export async function resolve(options) {
+  const { host } = options
   const ips = []
   const pingQueue = new PingQueue()
 
-  const host = 'www.baidu.com'
-  const server = new DnsServer()
+  const server = new DnsServer(options)
   const painter = new Painter(host)
 
   server.resolve(host)
@@ -47,20 +52,19 @@ async function main() {
     })
   })
   server.on(RESOLVE_EVENT.FINISHED, data => {
-    if (!data?.length) {
-      console.error(COLORS.red, `can not resolve ${host}, please make sure host exists and is reachable`)
+    if (!ips?.length) {
+      stdout.error(`can not resolve ${host}, please make sure host exists and is reachable`)
       process.exit(1)
     }
   })
 
-  function onExit() {
+  function onExit(code) {
+    stdout.showCursor()
     pingQueue.exit()
-    process.exit(0)
+    process.exit(code || 0)
   }
 
   process.on('exit', onExit)
   process.on('SIGINT', onExit)
   process.on('uncaughtException', err => console.error(err))
 }
-
-main()
