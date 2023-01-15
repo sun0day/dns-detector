@@ -1,13 +1,19 @@
 <p align='center'>
-  dns-detector
+  <img width="364" alt="image" src="https://user-images.githubusercontent.com/102238922/212551667-435005a1-a9bb-4dab-80e0-47fb832854ad.png">
+
+  <br>
+    A tiny nodejs cli tool to resolve host's IPs via DNS protocol and find the lowest latency IP via ping.
+  <br>
   <br>
   <img src="https://img.shields.io/npm/v/dns-detector">
   <img alt="node-current" src="https://img.shields.io/node/v/dns-detector">
-  <img src="https://img.shields.io/badge/platform-darwin%7Clinux%7Cwin32-black" />
   <img src="https://img.shields.io/bundlephobia/minzip/dns-detector?label=minzip">
+  <img src="https://img.shields.io/badge/platform-darwin%7Clinux%7Cwin32-black" />
+  
+
+
 </p>
 
-A tiny nodejs cli tool to resolve host's IPs via DNS protocol and find the lowest latency IP via ping.
 
 ## Screenshot
 
