@@ -8,7 +8,7 @@ async function main() {
   const ips = []
   const pingQueue = new PingQueue()
 
-  const host = 'github.com'
+  const host = 'www.baidu.com'
   const server = new DnsServer()
   const painter = new Painter(host)
 
