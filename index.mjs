@@ -1,4 +1,4 @@
-import { RESOLVE_EVENT } from './lib/constant.mjs'
+import { COLORS, RESOLVE_EVENT } from './lib/constant.mjs'
 import { DnsServer } from './lib/server.mjs'
 import { Ping, PingQueue } from './lib/ping.mjs'
 import { Painter } from './lib/painter.mjs'
@@ -8,7 +8,7 @@ async function main() {
   const ips = []
   const pingQueue = new PingQueue()
 
-  const host = 'www.baidu.com'
+  const host = 'github.com'
   const server = new DnsServer()
   const painter = new Painter(host)
 
@@ -45,6 +45,12 @@ async function main() {
 
       pingQueue.add(ping)
     })
+  })
+  server.on(RESOLVE_EVENT.FINISHED, data => {
+    if (!data?.length) {
+      console.error(COLORS.red, `can not resolve ${host}, please make sure host exists and is reachable`)
+      process.exit(1)
+    }
   })
 
   function onExit() {
