@@ -17,9 +17,9 @@
 
 ## Screenshot
 
-## Requirements
 
-`dns-detector` runs on node@18.x and above.
+![dns](https://user-images.githubusercontent.com/102238922/212589071-195bffdf-e6a6-499a-b0de-18ebc9cd732e.gif)
+
 
 ## Install
 
