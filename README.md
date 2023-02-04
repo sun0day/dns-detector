@@ -58,3 +58,8 @@ $ dns --host {your host} --server {DNS server} --timeout {query timeout} --tries
 - 114.114.114.114
 - 119.29.29.29
 - 223.5.5.5
+
+## :rocket: Coming soon
+
+- system hosts setting 
+- more graceful DNS manage UI
