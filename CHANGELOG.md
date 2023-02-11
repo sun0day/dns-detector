@@ -2,5 +2,6 @@
 
 ### feature
 
-- show DNS resolve time
+- support DNS resolve time
 - support node19.x
+- more elegant IP ping latency style

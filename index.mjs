@@ -1,9 +1,9 @@
-import { COLORS, RESOLVE_EVENT } from './lib/constant.mjs'
+import { COLORS, RESOLVE_EVENT, RESOLVE_STATUS } from './lib/constant.mjs'
 import { DnsServer } from './lib/server.mjs'
 import { IP, IPQueue } from './lib/ip.mjs'
 import { Ping, PingQueue } from './lib/ping.mjs'
 import { Painter } from './lib/painter.mjs'
-import { getRealTime, interval } from './lib/utils.mjs'
+import { interval, sleep } from './lib/utils.mjs'
 import { stdout } from './lib/stdout.mjs'
 
 export { COLORS }
@@ -15,16 +15,15 @@ export async function resolve(options) {
   const startTime = new Date()
   const ipQueue = new IPQueue()
   const pingQueue = new PingQueue()
+  let resolveStatus = RESOLVE_STATUS.PENDING
 
   const server = new DnsServer(options)
   const painter = new Painter(host)
 
   server.resolve(host)
-  painter.print(ipQueue.getAllIPs())
+  painter.print(ipQueue, resolveStatus)
 
-  interval(() => {
-    painter.print(ipQueue.getIPs())
-  }, 100)
+  interval(() => painter.print(ipQueue, resolveStatus), 100)
 
   server.on(RESOLVE_EVENT.FULFILLED, data => {
     data.ips.forEach(addr => {
@@ -34,7 +33,7 @@ export async function resolve(options) {
         return
       }
 
-      ip = new IP({ server: data.server, addr })
+      ip = new IP({ server: data.server, addr, resolveTime: new Date() - startTime })
 
       ipQueue.set(addr, ip)
 
@@ -49,9 +48,14 @@ export async function resolve(options) {
       pingQueue.set(addr, ping)
     })
   })
-  server.on(RESOLVE_EVENT.FINISHED, data => {
-    if (!ips?.length) {
-      stdout.error(`can not resolve ${host}, please make sure host exists and is reachable`)
+
+  server.on(RESOLVE_EVENT.FINISHED, async data => {
+    resolveStatus = RESOLVE_STATUS.SUCCESS
+
+    if (!ipQueue?.size) {
+      resolveStatus = RESOLVE_STATUS.FAIL
+      await sleep(100)
+      stdout.error(`can not resolve ${host}, please make sure host exists and is reachable\n`)
       process.exit(1)
     }
   })
