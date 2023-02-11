@@ -63,10 +63,14 @@ export async function resolve(options) {
   function onExit(code) {
     stdout.showCursor()
     pingQueue.exit()
-    process.exit(code || 0)
+
+    process.exit(typeof code === 'number' ? code : 0)
   }
 
   process.on('exit', onExit)
   process.on('SIGINT', onExit)
-  process.on('uncaughtException', err => console.error(err))
+  process.on('uncaughtException', err => {
+    console.error(err)
+    onExit(1)
+  })
 }
