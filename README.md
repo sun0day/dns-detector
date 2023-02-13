@@ -2,7 +2,7 @@
   <img width="364" alt="image" src="https://user-images.githubusercontent.com/102238922/212551667-435005a1-a9bb-4dab-80e0-47fb832854ad.png">
 
   <br>
-    A tiny nodejs cli tool to resolve host's IPs via DNS protocol and find the lowest latency IP via ping.
+    A tiny nodejs cli tool to resolve host IPs and find the fastest IP
   <br>
   <br>
   <img src="https://img.shields.io/npm/v/dns-detector">
@@ -13,6 +13,14 @@
 
 
 </p>
+
+## Feature
+
+- :racehorse: resolve host IPs 
+- :rocket: IP latency test
+- :potted_plant: super tiny, no 3rd-party dependencies
+- :whale: cross-platform support
+- :car: system host IP setting(**coming soon**)
 
 
 ## Screenshot
@@ -60,6 +68,3 @@ $ dns --host {your host} --server {DNS server} --timeout {query timeout} --tries
 - 119.29.29.29
 - 223.5.5.5
 
-## :rocket: Coming soon
-
-- system hosts setting 
