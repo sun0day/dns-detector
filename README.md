@@ -18,7 +18,8 @@
 ## Screenshot
 
 
-![dns](https://user-images.githubusercontent.com/102238922/212589071-195bffdf-e6a6-499a-b0de-18ebc9cd732e.gif)
+![dns](https://user-images.githubusercontent.com/102238922/218375654-b2b3bbfa-19d0-467b-973b-ee14e1d58aac.gif)
+
 
 
 ## Install
@@ -62,4 +63,3 @@ $ dns --host {your host} --server {DNS server} --timeout {query timeout} --tries
 ## :rocket: Coming soon
 
 - system hosts setting 
-- more graceful DNS manage UI
