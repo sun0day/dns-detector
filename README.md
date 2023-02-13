@@ -16,11 +16,11 @@
 
 ## Feature
 
-- :racehorse: resolve host IPs 
+- :mag: resolve host IPs 
 - :rocket: IP latency test
 - :potted_plant: super tiny, no 3rd-party dependencies
 - :whale: cross-platform support
-- :car: system host IP setting(**coming soon**)
+- :hammer: system host IP setting(**coming soon**)
 
 
 ## Screenshot
