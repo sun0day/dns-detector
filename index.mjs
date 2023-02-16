@@ -1,10 +1,10 @@
-import { COLORS, RESOLVE_EVENT, RESOLVE_STATUS } from './lib/constant.mjs'
+import { ACTION, COLORS, RESOLVE_EVENT, RESOLVE_STATUS } from './lib/constant.mjs'
 import { DnsServer } from './lib/server.mjs'
 import { IP, IPQueue } from './lib/ip.mjs'
 import { Ping, PingQueue } from './lib/ping.mjs'
 import { Painter } from './lib/painter.mjs'
 import { interval, sleep } from './lib/utils.mjs'
-import { stdout } from './lib/stdout.mjs'
+import { stdout, watchKeypress } from './lib/stdout.mjs'
 
 export { COLORS }
 
@@ -25,6 +25,7 @@ export async function resolve(options) {
 
   interval(() => painter.print(ipQueue, resolveStatus), 100)
 
+  let isFirstIp = false
   server.on(RESOLVE_EVENT.FULFILLED, data => {
     data.ips.forEach(addr => {
       let ip = ipQueue.get(addr)
@@ -33,7 +34,8 @@ export async function resolve(options) {
         return
       }
 
-      ip = new IP({ server: data.server, addr, resolveTime: new Date() - startTime })
+      ip = new IP({ server: data.server, addr, resolveTime: new Date() - startTime, selected: !isFirstIp })
+      isFirstIp = true
 
       ipQueue.set(addr, ip)
 
@@ -72,5 +74,15 @@ export async function resolve(options) {
   process.on('uncaughtException', err => {
     console.error(err)
     onExit(1)
+  })
+  watchKeypress((str, key) => {
+    if (key.ctrl && ['c', 'd'].includes(key.name)) {
+      onExit(0)
+    }
+
+    ipQueue.selectIP({
+      left: ACTION.prev,
+      right: ACTION.next
+    }[key.name])
   })
 }
