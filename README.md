@@ -20,7 +20,7 @@
 - :rocket: IP latency test
 - :potted_plant: super tiny, no 3rd-party dependencies
 - :whale: cross-platform support
-- :hammer: system host IP setting(**coming soon**)
+- :hammer: system host IP setting(:arrow_left: :arrow_right: :leftwards_arrow_with_hook:)
 
 
 ## Screenshot
