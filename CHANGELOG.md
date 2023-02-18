@@ -1,3 +1,9 @@
+## 1.2.0
+
+### feature
+
+- system host setting
+
 ## 1.1.0 (2023-02-13)
 
 ### feature
